@@ -42,7 +42,7 @@ class Student extends Teacher {
 
 let unaPersonaX = new Person ("Norberto", "Castillo", 49, "masculino", ["rugby", "Futbol", "politicas"], "no está"); 
 console.log (unaPersonaX); 
-console.log (unaPersonaX._nombre);
+console.log (unaPersonaX._nombre); 
 
 let primerProfesor = new Teacher ("Ernesto", "Claypole", 30, "masculino", ["futbol", "exploracion", "tecnologias"], "FullStack", 5); 
 console.log (primerProfesor); 
@@ -51,24 +51,33 @@ let primerEstudiante = new Student ();
 primerEstudiante.tareas = "hay Una Nueva tarea"; 
 console.log (primerEstudiante.tareas); 
 
-unaPersonaX.eating();
+unaPersonaX.eating(); 
 
 
 // Ejercicio 02 Dada la siguiente coleccion...
-console.log ("Ingresamos al ejercicio 02: Arreglos")
-const items = [
-  { description: 'Tomates', quantity: 1, price: 3, total: 55 },
-  { description: 'Cebolla', quantity: 3, price: 5, total: 5.5 },
-  { description: 'Zanahoria', quantity: 2, price: 6, total: 17 },
-  { description: 'Zapallo', quantity: 2, price: 9, total: 17 }
+console.log ("Ingresamos al ejercicio 02: Arreglos") 
+const items = [ 
+  { description: 'Tomates', quantity: 1, price: 3, total: 55 }, 
+  { description: 'Cebolla', quantity: 3, price: 5, total: 5.5 }, 
+  { description: 'Zanahoria', quantity: 2, price: 6, total: 17 }, 
+  { description: 'Zapallo', quantity: 2, price: 9, total: 17 } 
 ]; 
 
-let cantidadTotal = items.map (filtrarItems);
-console.log (`el arreglo de cantidad total es: ${cantidadTotal}`);
+// 1. Mostrar total de items 
+items.forEach (x=> console.log ("Listando Items... ", x)); 
+//2. Mostrar precio sumado de todos los ítems 
+let filtroTotales = items.map (x => x.total); 
+console.log (`El arreglo con todos los totales es: ${filtroTotales}`);  
+// falta utilizar la función reduce para arrays 
 
-function filtrarItems(x) {
-    let y = x.quantity;
-    return y;
+// 3. Mostrar sólo los ítems que contengan la property quantity igual a 2 
+porCantidad (items, 2); 
+
+// 4. Mostrar un ítem con quantity igual a 3 
+porCantidad (items, 3); 
+
+function porCantidad(arr, criterio) { 
+    let nuevo = arr.filter (x => x.quantity === criterio); 
+    nuevo.forEach (x => console.log("Los items con la cantidad: ", criterio, " son: ", x.description)); 
 } 
-let elTotaldeItems = cantidadTotal.reduce((sum, ele) => sum + ele);
-console.log (`el total de items es: ${elTotaldeItems}`);
+
