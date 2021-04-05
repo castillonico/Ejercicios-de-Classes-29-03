@@ -133,4 +133,4 @@ class Item {
 
 let nuevoItem = new Item ("naranjas", 50, 20, 9.5); 
 items.push (nuevoItem); 
-items.forEach (x=> console.log ("Listando Items... ", x)); 
+items.forEach (x=> console.log ("Listando Items... ", x._description)); 
